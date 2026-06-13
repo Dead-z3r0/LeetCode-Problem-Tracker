@@ -1,0 +1,63 @@
+body {
+  width: 320px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* MDN Ref se preferred font */
+  margin: 10px;
+  background-color: #1a1a1a;
+  color: #eff0f6;
+}
+
+h3 {
+  margin-top: 0;
+  color: #ffa116; /* LeetCode orange tint colour, logo ke acc */
+  border-bottom: 1px solid #333;
+  padding-bottom: 8px;
+}
+
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 300px;
+  overflow-y: auto; /* scroll opt*/
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  border-bottom: 1px solid #2d2d2d;
+}
+
+li:hover {
+  background-color: #2a2a2a;
+}
+
+.prob-link {
+  color: #00b5ff;
+  text-decoration: none;
+  max-width: 240px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.prob-link:hover {
+  text-decoration: underline; /* just an efect */
+}
+
+.del-btn {
+  background: none;
+  border: none;
+  color: #ff3b30;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.empty-msg {
+  color: #8a8a8a;
+  font-style: italic;
+  text-align: center;
+  margin-top: 15px;
+}

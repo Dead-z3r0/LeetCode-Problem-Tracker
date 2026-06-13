@@ -1,0 +1,28 @@
+{
+  "manifest_version":3,
+  "name":"LeetCode Problem Tracker",
+  "version":"1.0",
+  "description": "Track and quick launch LeetCode problems with a single click.",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon":"image/LC Tracker.png"
+  },
+  "icons":{
+    "16": "image/LC Tracker.png",
+    "48": "image/LC Tracker.png",
+    "128": "image/LC Tracker.png"
+  },
+  "permissions":[
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions":[
+    "https://leetcode.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches":["https://leetcode.com/problems/*"],
+      "js":["content.js"]
+    }
+  ]
+}

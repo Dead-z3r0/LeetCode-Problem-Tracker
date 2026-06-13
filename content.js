@@ -33,12 +33,20 @@ function injectTrackerButton() {
     e.preventDefault(); // Prevent accidental navigation if clicking near a link
     const problemName = titleElement.innerText.trim();
     const problemUrl = window.location.href.split('?')[0]; 
+    // get the difficulty
+    let difficulty = 'Unknown';
+    const diffElement = document.querySelector('.text-difficulty-easy , .text-difficulty-medium , .text-difficulty-hard');
+    if(diffElement) {
+      // Extract the difficulty text and trim the whitespace if ho to
+      difficulty = diffElement.innerText.trim();
+      console.log("Difficulty extracted:", difficulty);
+    }
     chrome.storage.local.get({ problems: [] }, (data) => {
       const currentList = data.problems;
       console.log("Current problem list:", currentList);
       const exists = currentList.some(p => p.url === problemUrl);
       if (!exists) {
-        currentList.push({ name: problemName, url: problemUrl });
+        currentList.push({ name: problemName, url: problemUrl, difficulty: difficulty });
         chrome.storage.local.set({ problems: currentList }, () => {
           console.log("Problem added to tracker");
           btn.innerText ='✅';

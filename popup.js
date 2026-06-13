@@ -19,6 +19,17 @@ document.addEventListener('DOMContentLoaded', () => {
         chrome.tabs.create({ url: prob.url });
         console.log("Link clicked for:", prob.name);
       });
+      // adding the diff tag
+      const rightControls = document.createElement('div');
+      rightControls.className = 'right-controls';
+      // diff badge span
+      const diffSpan = document.createElement('span');
+      // Use the saved difficulty, or 'Unknown' for older problems already saved
+      const diffText = prob.difficulty || "Unknown"; 
+      diffSpan.innerText = diffText;
+      // Convert to lowercase to match CSS classes
+      diffSpan.className = `diff-badge ${diffText.toLowerCase()}`;
+      console.log("Difficulty badge created for:", prob.name, "with difficulty:", diffText);//debug ke liye
       // Create delete button
       const delBtn = document.createElement('button');
       delBtn.className = 'del-btn';
@@ -29,8 +40,10 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log("Delete clicked for index no:", index);
       });
       // adding the link and delete button
+      rightControls.appendChild(diffSpan);
+      rightControls.appendChild(delBtn);
       li.appendChild(link);
-      li.appendChild(delBtn);
+      li.appendChild(rightControls);
       listContainer.appendChild(li);
     });
   });

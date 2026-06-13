@@ -61,3 +61,36 @@ li:hover {
   text-align: center;
   margin-top: 15px;
 }
+/* Container to group the difficulty and delete button */
+.right-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Base style for the difficulty badge */
+.diff-badge {
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* LeetCode Official Difficulty Colors (need to think about with no diff ones)*/
+.diff-badge.easy { 
+  background-color: rgba(0, 184, 163, 0.15); 
+  color: #00b8a3; 
+}
+.diff-badge.medium { 
+  background-color: rgba(255, 192, 30, 0.15); 
+  color: #ffc01e; 
+}
+.diff-badge.hard { 
+  background-color: rgba(255, 55, 95, 0.15); 
+  color: #ff375f; 
+}
+.diff-badge.unknown { 
+  background-color: #333; 
+  color: #888; 
+}

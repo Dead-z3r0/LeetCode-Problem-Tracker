@@ -17,6 +17,18 @@ function injectTrackerButton() {
   btn.style.alignItems = 'center';
   btn.title = "Add to Problem Tracker";
   console.log("Tracker button created");
+
+  // so the issue was plus was shown again after refrershing even after adding the prob in tracker
+  // so i'll simply check if the prob exist in the tracker and then change the btn to check mark
+  let problemUrl = window.location.href.split('?')[0];
+  chrome.storage.local.get({ problems: [] }, (data) => {
+    const currentList = data.problems;
+    const exists = currentList.some(p => p.url === problemUrl);
+    if(exists) {
+      btn.innerText = '✅';
+      console.log("button changed to check mark");
+    }
+  });
   btn.addEventListener('click', (e) => {  
     e.preventDefault(); // Prevent accidental navigation if clicking near a link
     const problemName = titleElement.innerText.trim();
